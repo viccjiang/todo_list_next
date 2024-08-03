@@ -33,14 +33,14 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v3
-  - name: Download static files
-    uses: actions/download-artifact@v3
-    with:
-      name: nextjs-build
-  - name: Deploy to GitHub Pages
-    uses: peaceiris/actions-gh-pages@v3
-    with:
-      publish_dir: ./out
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Download static files
+        uses: actions/download-artifact@v3
+        with:
+          name: nextjs-build
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
+        with:
+          publish_dir: ./out
